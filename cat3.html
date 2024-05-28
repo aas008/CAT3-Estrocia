@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Echoes of Tomorrow</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+        }
+        .choice {
+            color: orange;
+            cursor: pointer;
+        }
+        .end {
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+    <h1>Echoes of Tomorrow</h1>
+    <div id="story-content">
+        <h2>The Beginning</h2>
+        <p>Sunspots slowly faded from her vision... the front page, "Catastrophe in Estoria! Still, Nothing can Stop the Road to the Top!".</p>
+
+        <p>In 2100 the floods began... "This man didn't care for his citizens, he's overcome with greed," she thought to herself.</p>
+
+        <p class="choice" onclick="showContent('choice1')">FOLLOW DICTATOR</p> 
+        <span class="choice" onclick="showContent('continue')">OR CONTINUE</span>
+    </div>
+
+    <script>
+        function showContent(choiceId) {
+            const storyContent = document.getElementById('story-content');
+            storyContent.innerHTML = ''; // Clear previous content
+
+            switch (choiceId) {
+                case 'choice1':
+                    storyContent.innerHTML = `
+                        <h2>Character Choice</h2>
+                        <p class="choice" onclick="showContent('choice1a')">Following Kael</p>
+                        <p class="choice" onclick="showContent('choice1b')">Following Navi</p>
+                        <p class="choice" onclick="showContent('choice1c')">Follow Olivia</p>
+                    `;
+                    break;
+                case 'continue': 
+                    // (Add content for "continue" choice here)
+                    break;
+                case 'choice1a': // Following Kael
+                    // ... (Kael's story content) ...
+                    storyContent.innerHTML = `
+                        <p>Kael was a man forged in the fires of ambition... He ordered the city construction team and defense divisions to meet at the edge of Havenfield.</p>
+                        <p class="choice" onclick="showContent('sovereignAndCommunityLeaderMeet')">SOVEREIGN AND COMMUNITY LEADER MEET</p>
+                    `;
+                    break;
+                case 'choice1b': // Following Navi
+                    // ... (Navi's story content) ...
+                    storyContent.innerHTML = `
+                        <p>Navi retrieved their logs... Navi rose from his desk and briskly walked to fulfill the leader's request.</p>
+                        <p class="choice" onclick="showContent('dictatorAndAIMeet')">DICTATOR AND AI MEET</p>
+                    `;
+                    break;
+                case 'choice1c': // Follow Olivia
+                    // ... (Olivia's story content) ...
+                    storyContent.innerHTML = `
+                        <p>"Olivia!" she looked up... Centered in the encroaching mass she saw him, Sovereign Kael, sitting on a throne atop one of the vehicles.</p>
+                        <p class="choice" onclick="showContent('sovereignAndCommunityLeaderMeet')">SOVEREIGN AND COMMUNITY LEADER MEET</p>
+                    `;
+                    break;
+                case 'sovereignAndCommunityLeaderMeet':
+                    // ... (Content for this scene) ...
+                    storyContent.innerHTML = `
+                        <p>The air rumbled with tension... He had another plan.</p>
+                        <p class="choice" onclick="showContent('dictatorAndAIMeet')">DICTATOR AND AI MEET</p>
+                    `;
+                    break;
+                // ... (Continue adding cases for all choices and scenes)
+                // Remember to include all the content from your original outline.
+            }
+        }
+    </script>
+</body>
+</html>
